@@ -1,0 +1,11 @@
+global:
+  scrape_interval:     15s
+  external_labels:
+    monitor: 'prometheus-monitor'
+
+scrape_configs:
+  - job_name: 'user-created'
+    scrape_interval: 5s
+    metrics_path: '/sink/resources/metrics'
+    static_configs:
+    - targets: ['sink:8080']
